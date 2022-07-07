@@ -1,0 +1,64 @@
+name: Deploy to Lambda backend serverless to API Gateway
+
+on:
+  push:
+    branches:
+      - release
+    tags:
+      - "*"
+  pull_request:
+    branches:
+      - main
+      - release
+env:
+  S3_BUCKET: "demo-rationally-eminently-epic-tapir"
+  LAMBDA_NAME: "api-backend-demo"
+  
+jobs:
+  ci:
+    name: Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Lint code"
+        run: |
+          echo "Linting repository"
+      
+      - name: "Run unit tests"
+        run: |
+          echo "Running unit tests"
+  
+  cd:
+    name: Deployment
+    runs-on: ubuntu-latest
+    needs:
+      - ci
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Generate zip package
+        run: | 
+          cd worker 
+          echo $(pwd)
+          zip -r deploy.zip ./
+          echo $(ls -l | grep deploy.zip)
+          
+      - name: Upload file to S3
+        run: |
+          echo ${{ env.S3_BUCKET }}
+          aws s3 cp ./worker/deploy.zip s3://${{ env.S3_BUCKET }}
+        
+      - name: Update Lambda Code
+        run: |
+          echo ${{ env.LAMBDA_NAME }}
+          aws lambda update-function-code --function-name ${{ env.LAMBDA_NAME }} --s3-bucket ${{ env.S3_BUCKET }} --s3-key deploy.zip
