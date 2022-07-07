@@ -144,16 +144,13 @@ According to the prompts on the Launched user login page, we need register users
 
 + Confirm Account
 
-![image-20220707173756460](E:\GitTonyStark\RepoPublic\Serverless-secure-application-with-API-Gateway-and-Cognito\img\image-20220707173756460.png)
+![image-20220707173756460](https://github.com/tonystark201/Serverless-secure-application-with-API-Gateway-and-Cognito/blob/main/img/image-20220707173756460.png)
 
 + The Code in the Email
 
-![image-20220707173946575](E:\GitTonyStark\RepoPublic\Serverless-secure-application-with-API-Gateway-and-Cognito\img\image-20220707173946575.png)
+![image-20220707173946575](https://github.com/tonystark201/Serverless-secure-application-with-API-Gateway-and-Cognito/blob/main/img/image-20220707173946575.png)
 
 Then, we input the code in the form and confirm the account. Then we can use the email to login.
-
-![asdfasdf](E:\GitTonyStark\RepoPublic\Serverless-secure-application-with-API-Gateway-and-Cognito\img\asdfasdf.png)
-
 After we login, the URL will change to the callback url which is configured by us(You can found it in the `main.tf` file). The URL show as below.
 
 ```
@@ -187,7 +184,7 @@ __For example:__
 
 I use the postman to post my request to the Cognito identity server.
 
-![image-20220707184219711](E:\GitTonyStark\RepoPublic\Serverless-secure-application-with-API-Gateway-and-Cognito\img\image-20220707184219711.png)
+![image-20220707184219711](https://github.com/tonystark201/Serverless-secure-application-with-API-Gateway-and-Cognito/blob/main/img/image-20220707184219711.png)
 
 + The POST Request
 
@@ -249,11 +246,11 @@ __We can decode the JWT id_token as below.__
 
 Since each Route of API Gateway is configured with an authorizer, we need to put the JWT in the request header so that it can be routed to the specified backend resource after authorization.
 
-![image-20220707230954253](E:\GitTonyStark\RepoPublic\Serverless-secure-application-with-API-Gateway-and-Cognito\img\image-20220707230954253.png)
+![image-20220707230954253](https://github.com/tonystark201/Serverless-secure-application-with-API-Gateway-and-Cognito/blob/main/img/image-20220707230954253.png)
 
 The request header we configured that must take the Authorization Key (you can see how we configured it in `main.tf` file), so the request header is as follows.
 
-![image-20220707184249819](E:\GitTonyStark\RepoPublic\Serverless-secure-application-with-API-Gateway-and-Cognito\img\image-20220707184249819.png)
+![image-20220707184249819]([E:\GitTonyStark\RepoPublic\Serverless-secure-application-with-API-Gateway-and-Cognito\img\image-20220707184249819.png](https://github.com/tonystark201/Serverless-secure-application-with-API-Gateway-and-Cognito/blob/main/img/image-20220707184249819.png))
 
 Then we can get the response successfully.
 
