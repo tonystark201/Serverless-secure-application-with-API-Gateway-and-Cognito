@@ -250,7 +250,7 @@ Since each Route of API Gateway is configured with an authorizer, we need to put
 
 The request header we configured that must take the Authorization Key (you can see how we configured it in `main.tf` file), so the request header is as follows.
 
-![image-20220707184249819]([E:\GitTonyStark\RepoPublic\Serverless-secure-application-with-API-Gateway-and-Cognito\img\image-20220707184249819.png](https://github.com/tonystark201/Serverless-secure-application-with-API-Gateway-and-Cognito/blob/main/img/image-20220707184249819.png))
+![image-20220707184249819](https://github.com/tonystark201/Serverless-secure-application-with-API-Gateway-and-Cognito/blob/main/img/image-20220707184249819.png)
 
 Then we can get the response successfully.
 
