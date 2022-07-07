@@ -136,7 +136,7 @@ Of course, as a demo project, we use the Hosted UI that comes with Cognito, whic
 
 + The App client settings page.(__Launch Hosted UI__)
 
-![image-20220707230000165](E:\GitTonyStark\RepoPublic\Serverless-secure-application-with-API-Gateway-and-Cognito\img\image-20220707230000165.png)
+![image-20220707230000165](https://github.com/tonystark201/Serverless-secure-application-with-API-Gateway-and-Cognito/blob/main/img/image-20220707230000165.png)
 
 ### Step2: Register and Login user
 
