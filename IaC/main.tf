@@ -209,7 +209,7 @@ resource "aws_apigatewayv2_authorizer" "api_authorizer" {
   name             = "api-authorizer"
 
   jwt_configuration {
-    audience = ["example"]
+    audience = ["${aws_cognito_user_pool_client.client.id}"]
     issuer   = "https://${aws_cognito_user_pool.user_pool.endpoint}"
   }
 }
